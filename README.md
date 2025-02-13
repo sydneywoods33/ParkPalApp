@@ -3,5 +3,5 @@
 
 How to run project:
 > npm install
-> npx expo go
+> npx expo start
 - scan qr code

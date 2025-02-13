@@ -1,12 +1,12 @@
 import React from "react";
-import { View, Text, Button, StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 const SplashScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>ParkPal</Text>
+            <Text style={styles.text}>ParkPal Splash Screen</Text>
 
-            {/* button to go to the main screen */}
+            {/* button to go to the sign up screen*/}
             <TouchableOpacity style={styles.button} onPress={() => navigation.replace("Signup")}>
                 <Text style={styles.buttonText}>Get Started →</Text>
             </TouchableOpacity>

@@ -4,13 +4,14 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 const EmailSignupScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Email Input Screen</Text>
+            <Text style={styles.text}>Onboarding: Email Input Screen </Text>
 
             <View style={styles.buttonContainer}>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
                     <Text style={styles.buttonText}>←</Text>
                 </TouchableOpacity>
 
+                {/* button to go to the name input screen*/}
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("NameInput")}>
                     <Text style={styles.buttonText}>Next →</Text>
                 </TouchableOpacity>
