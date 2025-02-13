@@ -4,13 +4,14 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 const PhoneDigitScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Phone Digit Screen</Text>
+            <Text style={styles.text}>Onboarding: Phone Digit Screen</Text>
 
             <View style={styles.buttonContainer}>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
                     <Text style={styles.buttonText}>←</Text>
                 </TouchableOpacity>
 
+                {/* button to go to email sign up screen*/}
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("EmailSignup")}>
                     <Text style={styles.buttonText}>Next →</Text>
                 </TouchableOpacity>

@@ -1,16 +1,17 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 const TermsConditionsScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Terms and Conditions Screen</Text>
+            <Text style={styles.text}>Onboarding: Terms and Conditions Screen</Text>
 
             <View style={styles.buttonContainer}>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
                     <Text style={styles.buttonText}>←</Text>
                 </TouchableOpacity>
 
+                {/* button to go to the main screen*/}
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("MainScreen")}>
                     <Text style={styles.buttonText}>Finish →</Text>
                 </TouchableOpacity>

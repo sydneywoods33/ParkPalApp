@@ -4,13 +4,14 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 const NameInputScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Name Input Screen</Text>
+            <Text style={styles.text}>Onboarding: Name Input Screen</Text>
 
             <View style={styles.buttonContainer}>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
                     <Text style={styles.buttonText}>←</Text>
                 </TouchableOpacity>
 
+                {/* button to go to the terms and conditions screen*/}
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("TermsConditions")}>
                     <Text style={styles.buttonText}>Next →</Text>
                 </TouchableOpacity>

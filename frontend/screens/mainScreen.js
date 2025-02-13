@@ -7,13 +7,20 @@ const MainScreen = ({ navigation }) => {
             <Text style={styles.text}>Main Screen</Text>
 
             <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
+                    <Text style={styles.buttonText}>←</Text>
+                </TouchableOpacity>
+
+                {/* button to go to the plan ride screen*/}
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("PlanRide")}>
                     <Text style={styles.buttonText}>Plan a Ride →</Text>
                 </TouchableOpacity>
 
+                {/* button to go to the parking suggestion screen*/}
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("ParkingSuggestion")}>
                     <Text style={styles.buttonText}>Find Parking →</Text>
                 </TouchableOpacity>
+                
             </View>
         </View>
     );
