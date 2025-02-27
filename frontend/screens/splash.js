@@ -1,10 +1,10 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 
 const SplashScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>ParkPal Splash Screen</Text>
+            <Image source={require('../images/logo.png')} style={styles.logo} />
 
             {/* button to go to the sign up screen*/}
             <TouchableOpacity style={styles.button} onPress={() => navigation.replace("Signup")}>
@@ -19,24 +19,22 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#f5f5f5",
+        backgroundColor: "#141414",
     },
-    text: {
-        fontSize: 28,
-        fontWeight: "bold",
-        textAlign: "center",
+    logo: {
         marginBottom: 30,
     },
     button: {
-        marginTop: 20,
-        backgroundColor: "black",
+        position: "absolute",
+        bottom: 50, 
+        backgroundColor: "white",
         paddingVertical: 12,
         paddingHorizontal: 25,
         borderRadius: 10,
     },
     buttonText: {
         fontSize: 18,
-        color: "white",
+        color: "black",
         fontWeight: "bold",
     },
 });

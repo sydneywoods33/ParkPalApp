@@ -1,21 +1,41 @@
-import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { View, Text, TouchableOpacity, StyleSheet, TextInput } from "react-native";
 
-const PhoneDigitScreen = ({ navigation }) => {
+const PhoneDigitScreen = ({ navigation, route }) => {
+    const [code, setCode] = useState(["", "", "", ""]);
+    const phoneNumber = route.params?.phoneNumber || "____";
+
+    const handleChangeText = (text, index) => {
+        const newCode = [...code];
+        newCode[index] = text;
+        setCode(newCode);
+    };
+
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Onboarding: Phone Digit Screen</Text>
+            <Text style={styles.headerText}>Enter the 4-digit code sent to you at</Text>
+            <Text style={styles.phoneNumberText}>{phoneNumber}</Text>
 
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
-                    <Text style={styles.buttonText}>←</Text>
-                </TouchableOpacity>
-
-                {/* button to go to email sign up screen*/}
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("EmailSignup")}>
-                    <Text style={styles.buttonText}>Next →</Text>
-                </TouchableOpacity>
+            <View style={styles.inputContainer}>
+                {code.map((digit, index) => (
+                    <TextInput
+                        key={index}
+                        style={styles.input}
+                        value={digit}
+                        onChangeText={(text) => handleChangeText(text, index)}
+                        keyboardType="numeric"
+                        maxLength={1}
+                    />
+                ))}
             </View>
+
+            <TouchableOpacity style={styles.confirmButton} onPress={() => navigation.navigate("EmailSignup")}>
+                <Text style={styles.confirmButtonText}>Confirm</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.resendButton}>
+                <Text style={styles.resendButtonText}>I didn’t receive a code</Text>
+            </TouchableOpacity>
         </View>
     );
 };
@@ -24,32 +44,63 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "flex-start",
         backgroundColor: "#f5f5f5",
+        paddingHorizontal: 20,
+        paddingTop: 50,
     },
-    text: {
-        fontSize: 28,
-        fontWeight: "bold",
+    headerText: {
+        fontSize: 18,
+        color: "black",
+        textAlign: "center",
+        marginBottom: 10,
+    },
+    phoneNumberText: {
+        fontSize: 18,
+        color: "black",
         textAlign: "center",
         marginBottom: 30,
     },
-    buttonContainer: {
+    inputContainer: {
         flexDirection: "row",
-        marginTop: 20,
-        gap: 15,
+        justifyContent: "center",
+        marginBottom: 30,
     },
-    button: {
+    input: {
+        width: 50,
+        height: 50,
+        backgroundColor: "#D6D6D6",
+        textAlign: "center",
+        fontSize: 18,
+        marginHorizontal: 5,
+        borderRadius: 5,
+    },
+    confirmButton: {
         backgroundColor: "black",
         paddingVertical: 12,
         paddingHorizontal: 25,
-        borderRadius: 10,
+        borderRadius: 20,
+        alignSelf: "center",
+        marginTop: 20,
     },
-    buttonText: {
+    confirmButtonText: {
         fontSize: 18,
         color: "white",
         fontWeight: "bold",
     },
+    resendButton: {
+        backgroundColor: "#D6D6D6",
+        paddingVertical: 12,
+        paddingHorizontal: 25,
+        borderRadius: 20,
+        alignSelf: "center",
+        marginTop: 20,
+    },
+    resendButtonText: {
+        fontSize: 18,
+        color: "black",
+        textAlign: "center",
+    },
 });
 
 export default PhoneDigitScreen;
-
