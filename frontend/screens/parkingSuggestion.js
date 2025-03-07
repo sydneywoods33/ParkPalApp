@@ -1,13 +1,14 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import commonUIStyles from "../styles/commonUIStyles";
 
 const ParkingSuggestionScreen = ({ navigation }) => {
     return (
-        <View style={styles.container}>
+        <View style={[commonUIStyles.container, styles.container]}>
             <Text style={styles.text}>Find Parking Screen</Text>
 
-            <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
-                <Text style={styles.buttonText}>← Go Back</Text>
+            <TouchableOpacity style={commonUIStyles.button} onPress={() => navigation.goBack()}>
+                <Text style={commonUIStyles.buttonText}>← Go Back</Text>
             </TouchableOpacity>
         </View>
     );
@@ -15,28 +16,14 @@ const ParkingSuggestionScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#f5f5f5",
     },
     text: {
         fontSize: 28,
         fontWeight: "bold",
         textAlign: "center",
         marginBottom: 30,
-    },
-    button: {
-        backgroundColor: "black",
-        paddingVertical: 12,
-        paddingHorizontal: 25,
-        borderRadius: 10,
-        alignItems: "center",
-    },
-    buttonText: {
-        fontSize: 18,
-        color: "white",
-        fontWeight: "bold",
     },
 });
 

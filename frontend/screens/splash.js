@@ -1,14 +1,20 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
+import commonUIStyles from "../styles/commonUIStyles";
 
 const SplashScreen = ({ navigation }) => {
     return (
-        <View style={styles.container}>
-            <Image source={require('../images/logo.png')} style={styles.logo} />
+        <View style={[commonUIStyles.container, styles.container]}>
+            <Image source={require("../images/logo.png")} style={styles.logo} resizeMode="contain" />
 
-            {/* button to go to the sign up screen*/}
-            <TouchableOpacity style={styles.button} onPress={() => navigation.replace("Signup")}>
-                <Text style={styles.buttonText}>Get Started →</Text>
+            {/* button to go to the sign in screen */}
+            <TouchableOpacity style={commonUIStyles.button} onPress={() => navigation.replace("SignIn")}>
+                <Text style={commonUIStyles.buttonText}>Sign In</Text>
+            </TouchableOpacity>
+
+            {/* button to go to the enable location screen */}
+            <TouchableOpacity style={[commonUIStyles.button, styles.newUserButton]} onPress={() => navigation.replace("EnableLocation")}>
+                <Text style={commonUIStyles.buttonText}>New User</Text>
             </TouchableOpacity>
         </View>
     );
@@ -16,26 +22,17 @@ const SplashScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#141414",
+        alignItems: "center", // Center the logo horizontally
+        backgroundColor: "#FAFAFA", // Updated background color
     },
     logo: {
+        width: 150, // Adjust the width to make the logo smaller
+        height: 150, // Adjust the height to make the logo smaller
         marginBottom: 30,
     },
-    button: {
-        position: "absolute",
-        bottom: 50, 
-        backgroundColor: "white",
-        paddingVertical: 12,
-        paddingHorizontal: 25,
-        borderRadius: 10,
-    },
-    buttonText: {
-        fontSize: 18,
-        color: "black",
-        fontWeight: "bold",
+    newUserButton: {
+        marginTop: 20, // Add padding between the buttons
     },
 });
 

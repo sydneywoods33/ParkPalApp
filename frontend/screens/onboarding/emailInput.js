@@ -2,26 +2,21 @@ import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, TextInput } from "react-native";
 import commonUIStyles from "../../styles/commonUIStyles";
 
-const NameInputScreen = ({ navigation }) => {
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
+// Screen for input values for email set-up
+
+const EmailSignupScreen = ({ navigation }) => {
+    const [email, setEmail] = useState("");
 
     return (
         <View style={[commonUIStyles.container, styles.container]}>
-            <Text style={commonUIStyles.headerText}>What's your Name?</Text>
+            <Text style={commonUIStyles.headerText}>What’s your email address?</Text>
             <TextInput
                 style={commonUIStyles.inputBox}
-                placeholder="Enter first name"
+                placeholder="name@example.com"
                 placeholderTextColor="#888"
-                value={firstName}
-                onChangeText={setFirstName}
-            />
-            <TextInput
-                style={commonUIStyles.inputBox}
-                placeholder="Enter last name"
-                placeholderTextColor="#888"
-                value={lastName}
-                onChangeText={setLastName}
+                keyboardType="email-address"
+                value={email}
+                onChangeText={setEmail}
             />
 
             <View style={commonUIStyles.buttonContainer}>
@@ -29,7 +24,8 @@ const NameInputScreen = ({ navigation }) => {
                     <Text style={commonUIStyles.buttonText}>←</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={commonUIStyles.button} onPress={() => navigation.navigate("TermsConditions")}>
+                {/* button to go to the name input screen*/}
+                <TouchableOpacity style={commonUIStyles.button} onPress={() => navigation.navigate("NameInput")}>
                     <Text style={commonUIStyles.buttonText}>Next →</Text>
                 </TouchableOpacity>
             </View>
@@ -45,4 +41,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default NameInputScreen;
+export default EmailSignupScreen;

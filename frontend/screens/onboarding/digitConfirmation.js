@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, TextInput } from "react-native";
+import commonUIStyles from "../../styles/commonUIStyles";
 
 const PhoneDigitScreen = ({ navigation, route }) => {
     const [code, setCode] = useState(["", "", "", ""]);
@@ -12,8 +13,8 @@ const PhoneDigitScreen = ({ navigation, route }) => {
     };
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.headerText}>Enter the 4-digit code sent to you at</Text>
+        <View style={[commonUIStyles.container, styles.container]}>
+            <Text style={commonUIStyles.headerText}>Enter the 4-digit code sent to you at</Text>
             <Text style={styles.phoneNumberText}>{phoneNumber}</Text>
 
             <View style={styles.inputContainer}>
@@ -29,8 +30,8 @@ const PhoneDigitScreen = ({ navigation, route }) => {
                 ))}
             </View>
 
-            <TouchableOpacity style={styles.confirmButton} onPress={() => navigation.navigate("EmailSignup")}>
-                <Text style={styles.confirmButtonText}>Confirm</Text>
+            <TouchableOpacity style={commonUIStyles.button} onPress={() => navigation.navigate("NameInput")}>
+                <Text style={commonUIStyles.buttonText}>Confirm</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.resendButton}>
@@ -42,18 +43,7 @@ const PhoneDigitScreen = ({ navigation, route }) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "flex-start",
-        backgroundColor: "#f5f5f5",
-        paddingHorizontal: 20,
-        paddingTop: 50,
-    },
-    headerText: {
-        fontSize: 18,
-        color: "black",
-        textAlign: "center",
-        marginBottom: 10,
+        backgroundColor: "white",
     },
     phoneNumberText: {
         fontSize: 18,
@@ -74,19 +64,6 @@ const styles = StyleSheet.create({
         fontSize: 18,
         marginHorizontal: 5,
         borderRadius: 5,
-    },
-    confirmButton: {
-        backgroundColor: "black",
-        paddingVertical: 12,
-        paddingHorizontal: 25,
-        borderRadius: 20,
-        alignSelf: "center",
-        marginTop: 20,
-    },
-    confirmButtonText: {
-        fontSize: 18,
-        color: "white",
-        fontWeight: "bold",
     },
     resendButton: {
         backgroundColor: "#D6D6D6",

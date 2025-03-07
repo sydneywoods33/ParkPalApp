@@ -1,12 +1,13 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
+import commonUIStyles from "../styles/commonUIStyles";
 
 const MainScreen = ({ navigation }) => {
     return (
-        <View style={styles.container}>
+        <View style={[commonUIStyles.container, styles.container]}>
             <View style={styles.topContainer}>
-                <Image source={require("../images/notextlogo.png")} style={styles.logo} resizeMode="contain" />
-                <Text style={styles.title}>Parking</Text>
+                <Image source={require("../images/logo.png")} style={styles.logo} resizeMode="contain" />
+                <Text style={commonUIStyles.title}>Parking</Text>
                 <Image source={require("../images/usericon.png")} style={styles.userIcon} />
             </View>
 
@@ -19,16 +20,16 @@ const MainScreen = ({ navigation }) => {
                 <Text style={styles.locationText}>Location</Text>
             </View>
 
-            <View style={styles.divider} />
+            <View style={commonUIStyles.divider} />
 
             <View style={styles.locationContainer}>
                 <Image source={require("../images/locationicon.png")} style={styles.locationIcon} />
                 <Text style={styles.locationText}>Location</Text>
             </View>
 
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("PlanRide")}>
-                    <Text style={styles.buttonText}>Plan a Ride →</Text>
+            <View style={commonUIStyles.buttonContainer}>
+                <TouchableOpacity style={commonUIStyles.button} onPress={() => navigation.navigate("PlanRide")}>
+                    <Text style={commonUIStyles.buttonText}>Plan a Ride →</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -37,8 +38,6 @@ const MainScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: "#f5f5f5",
         paddingHorizontal: 20,
         paddingTop: 50,
     },
@@ -51,11 +50,6 @@ const styles = StyleSheet.create({
     logo: {
         width: 40,
         height: 40,
-    },
-    title: {
-        fontSize: 24,
-        fontWeight: "bold",
-        textAlign: "center",
     },
     userIcon: {
         width: 40,
@@ -85,34 +79,6 @@ const styles = StyleSheet.create({
     locationText: {
         fontSize: 18,
         color: "black",
-    },
-    divider: {
-        height: 1,
-        backgroundColor: "black",
-        marginVertical: 10,
-        marginHorizontal: 5,
-    },
-    buttonContainer: {
-        position: "absolute",
-        bottom: 50,
-        left: 20,
-        right: 20,
-        justifyContent: "center",
-        alignItems: "center",
-    },
-    button: {
-        backgroundColor: "black",
-        paddingVertical: 12,
-        paddingHorizontal: 25,
-        borderRadius: 10,
-        alignItems: "center",
-        marginBottom: 10,
-        width: "100%",
-    },
-    buttonText: {
-        fontSize: 18,
-        color: "white",
-        fontWeight: "bold",
     },
 });
 
