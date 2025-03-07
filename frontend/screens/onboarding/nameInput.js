@@ -1,10 +1,27 @@
-import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { View, Text, TouchableOpacity, StyleSheet, TextInput } from "react-native";
 
 const NameInputScreen = ({ navigation }) => {
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Onboarding: Name Input Screen</Text>
+            <Text style={styles.headerText}>What's your Name?</Text>
+            <TextInput
+                style={styles.input}
+                placeholder="Enter first name"
+                placeholderTextColor="#888"
+                value={firstName}
+                onChangeText={setFirstName}
+            />
+            <TextInput
+                style={styles.input}
+                placeholder="Enter last name"
+                placeholderTextColor="#888"
+                value={lastName}
+                onChangeText={setLastName}
+            />
 
             <View style={styles.buttonContainer}>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
@@ -24,25 +41,40 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "#f5f5f5",
+        justifyContent: "flex-start",
+        backgroundColor: "white",
+        paddingHorizontal: 20,
+        paddingTop: 50,
     },
-    text: {
-        fontSize: 28,
-        fontWeight: "bold",
-        textAlign: "center",
-        marginBottom: 30,
+    headerText: {
+        fontSize: 18,
+        color: "black",
+        textAlign: "left",
+        width: "100%",
+        marginBottom: 20,
+    },
+    input: {
+        width: "100%",
+        backgroundColor: "#D6D6D6",
+        paddingVertical: 12,
+        paddingHorizontal: 20,
+        borderRadius: 10,
+        fontSize: 18,
+        marginBottom: 20,
     },
     buttonContainer: {
         flexDirection: "row",
-        marginTop: 20,
-        gap: 15,
+        position: "absolute",
+        bottom: 50,
+        left: 20,
+        right: 20,
+        justifyContent: "space-between",
     },
     button: {
         backgroundColor: "black",
         paddingVertical: 12,
         paddingHorizontal: 25,
-        borderRadius: 10,
+        borderRadius: 20,
     },
     buttonText: {
         fontSize: 18,

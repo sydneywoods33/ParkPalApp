@@ -1,10 +1,22 @@
-import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { View, Text, TouchableOpacity, StyleSheet, TextInput } from "react-native";
+
+// Screen for input values for email set-u[]
 
 const EmailSignupScreen = ({ navigation }) => {
+    const [email, setEmail] = useState("");
+
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Onboarding: Email Input Screen </Text>
+            <Text style={styles.headerText}>What’s your email address?</Text>
+            <TextInput
+                style={styles.input}
+                placeholder="name@example.com"
+                placeholderTextColor="#888"
+                keyboardType="email-address"
+                value={email}
+                onChangeText={setEmail}
+            />
 
             <View style={styles.buttonContainer}>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
@@ -24,25 +36,39 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "#f5f5f5",
+        justifyContent: "flex-start",
+        backgroundColor: "white",
+        paddingHorizontal: 20,
+        paddingTop: 50,
     },
-    text: {
-        fontSize: 28,
-        fontWeight: "bold",
+    headerText: {
+        fontSize: 18,
+        color: "black",
         textAlign: "center",
+        marginBottom: 20,
+    },
+    input: {
+        width: "100%",
+        backgroundColor: "#D6D6D6",
+        paddingVertical: 12,
+        paddingHorizontal: 20,
+        borderRadius: 20,
+        fontSize: 18,
         marginBottom: 30,
     },
     buttonContainer: {
         flexDirection: "row",
-        marginTop: 20,
-        gap: 15,
+        position: "absolute",
+        bottom: 50,
+        left: 20,
+        right: 20,
+        justifyContent: "space-between",
     },
     button: {
         backgroundColor: "black",
         paddingVertical: 12,
         paddingHorizontal: 25,
-        borderRadius: 10,
+        borderRadius: 20,
     },
     buttonText: {
         fontSize: 18,
